@@ -1,0 +1,107 @@
+/* Button Reset */
+.button {
+  align-items: center;
+  border: none;
+  border-radius: 3rem;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  height: 3rem;
+  justify-content: center;
+  outline: none;
+  padding: 0 1.5rem;
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  user-select: none;
+}
+
+.button:hover {
+  filter: brightness(96%);
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
+
+.button:disabled:hover {
+  cursor: default;
+  filter: none;
+}
+
+.button > * {
+  pointer-events: none;
+}
+
+/* Sizes */
+
+.small {
+  border-radius: 2.5rem;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+}
+
+.large {
+  height: 2.5rem;
+  padding: 0 4rem;
+  width: 200px;
+}
+
+.large > * {
+  margin-bottom: 0.5rem;
+}
+
+/* Types */
+
+/* Icon Button */
+.icon {
+  padding: 0.5rem;
+}
+
+.icon img {
+  border-radius: 100%;
+  width: 2rem;
+}
+
+.iconBefore, .iconAfter {
+  display: flex;
+}
+
+.iconBefore.small {
+  padding: 0 1.25rem 0 0.75rem;
+}
+
+.iconBefore svg {
+  margin-right: 0.75rem;
+}
+
+.iconAfter svg {
+  margin-left: 0.75rem;
+}
+
+.iconBefore.small svg {
+  margin-right: 0.625rem;
+}
+
+.iconAfter.small svg {
+  margin-left: 0.625rem;
+}
+
+/* Secondary */
+.secondary {
+  background: lightslategray;
+}
+
+/* error */
+.error {
+  background: red;
+  color: white;
+}
+
+.success {
+  background: green;
+  color: white;
+}

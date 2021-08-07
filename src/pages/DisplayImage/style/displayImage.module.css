@@ -1,0 +1,110 @@
+.container {
+  background: white;
+  border-radius: 0.5rem;
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+}
+
+.loading > * {
+  background: whitesmoke;
+  border-radius: 0.5rem;
+  display: block;
+  height: 170px;
+  opacity: 1;
+  width: 220px;
+}
+
+.innergrid {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column: span 2;
+}
+
+.actions {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: auto 8.5rem;
+  justify-content: end;
+}
+
+.imgContainer {
+  margin-bottom: 50px;
+  position: relative;
+  height: 170px;
+  width: 200px;
+}
+
+.voteContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  opacity: 1;
+  transition: .3s ease;
+  top: 80%;
+}
+
+.imgContainer:hover .overlay {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 300px) {
+  .grid {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(1, auto);
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .grid {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .grid {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .grid {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+  }
+}

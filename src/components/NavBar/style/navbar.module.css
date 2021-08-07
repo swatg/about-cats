@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.container > ul {
+  align-items: center;
+  display: flex;
+}
+
+.container > ul > li {
+  margin-left: 2.5rem;
+  position: relative;
+  z-index: 2;
+  font-weight: bold;
+}
