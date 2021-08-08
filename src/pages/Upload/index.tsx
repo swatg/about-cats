@@ -10,7 +10,7 @@ import styles from './style/upload.module.css';
 
 function Upload() {
   const history = useHistory();
-  const [image, setImage] = useState({ preview: '', raw: '' });
+  const [image, setImage] = useState({ preview: '', raw: '' as unknown as File });
   const [notificationText, setNotificationText] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -18,7 +18,6 @@ function Upload() {
     if (e.target.files && e.target.files.length) {
       setImage({
         preview: URL.createObjectURL(e.target.files[0]),
-        // @ts-ignore
         raw: e.target.files[0],
       });
     }
@@ -31,7 +30,7 @@ function Upload() {
     data.append('sub_id', subId);
     axios.post(`${baseURL}v1/images/upload?api_key=${apiKey}`, data).then((response) => {
       setLoading(false);
-      history.goBack();
+      history.push('/')
     }).catch(error => {
       setLoading(false);
       setNotificationText(`Image Upload Unsuccessful. ${error.message}`);

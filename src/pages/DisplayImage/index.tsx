@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Icon from 'assests/Icon';
@@ -33,11 +32,12 @@ function DisplayImage() {
         if (response.data.message === 'SUCCESS'){
           let upList: ImageProps[] = [];
           upList = imageList.map((item) => {
-            if (item.id === id){
-              item.fav_id = response.data.id;
-              item.fav_value = 1;
+            const tempItem = item;
+            if (tempItem.id === id){
+              tempItem.fav_id = response.data.id;
+              tempItem.fav_value = 1;
             }
-            return item
+            return tempItem
           }) 
           setImageList(upList);
         }
@@ -47,10 +47,11 @@ function DisplayImage() {
         if (response.data.message === 'SUCCESS'){
           let upList: ImageProps[] = [];
           upList = imageList.map((item) => {
-            if (item.id === id){
-              item.fav_value = 0;
+            const tempItem = item;
+            if (tempItem.id === id){
+              tempItem.fav_value = 0;
             }
-            return item
+            return tempItem
           }) 
           setImageList(upList);
         }
@@ -67,11 +68,12 @@ function DisplayImage() {
     axios.post(`${baseURL}v1/votes?api_key=${apiKey}`, data).then((response) => {
       let tempList: ImageProps[] = [];
       tempList = imageList.map((ele: ImageProps) => {
-        if (id === ele.id) {
-          ele.vote_id = response.data.id
-          ele.vote_value = value
+        const tempEle = ele;
+        if (id === tempEle.id) {
+          tempEle.vote_id = response.data.id
+          tempEle.vote_value = value
         }
-        return ele
+        return tempEle
       })
       setImageList(tempList)
     });
@@ -141,20 +143,21 @@ function DisplayImage() {
     if (imageResponseList) {
       data = imageResponseList.map((item: ImageProps) => {
         const voteItem = voteList.find((vote: { image_id: string }) => vote.image_id === item.id)
+        const tempItem = item;
         if (voteItem) {
-          item.vote_value = voteItem.value
-          item.vote_id = voteItem.id
+          tempItem.vote_value = voteItem.value
+          tempItem.vote_id = voteItem.id
         } else {
-          item.vote_value = 0;
+          tempItem.vote_value = 0;
         }
         const favouriteItem = favouriteList.find((favourite: { image_id: string }) => favourite.image_id === item.id)
         if (favouriteItem) {
-          item.fav_value = 1
-          item.fav_id = favouriteItem.id
+          tempItem.fav_value = 1
+          tempItem.fav_id = favouriteItem.id
         } else {
-          item.fav_value = 0;
+          tempItem.fav_value = 0;
         }
-        return item
+        return tempItem
       })
       setImageList(data);
     }
